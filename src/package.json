@@ -1,5 +1,5 @@
 {
-  "name": "jarvis-listener",
+  "name": "voice-listener",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "matrix-protos": "0.0.16",
-    "sonus": "^0.1.8",
+    "matrix-protos": "0.0.28",
+    "sonus": "^1.0.3",
     "zmq": "^2.15.3"
   }
 }
