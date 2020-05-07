@@ -1,0 +1,21 @@
+module.exports = {
+    processor: {
+        uri: {
+            chime: 'http://nodered/endpoint/chime',
+            instruction: 'http://nodered/endpoint/voice-command'
+        }
+    },
+    google: {
+        projectId: 'streaming-speech-sample',
+        keyfile: __dirname + '/keyfile.json'
+    },
+    sonus: {
+        hotword: 'jarvis',
+        model: __dirname + '/resources/jarvis.pmdl'
+    },
+    abortCodes: [
+        'abort',
+        'nevermind',
+        'stop listening'
+    ]
+};

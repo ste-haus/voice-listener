@@ -1,0 +1,12 @@
+[Unit]
+Description=Voice Listener
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/data/voice-listener
+ExecStart=/usr/local/bin/node index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

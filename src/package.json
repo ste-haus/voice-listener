@@ -1,0 +1,16 @@
+{
+  "name": "jarvis-listener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "matrix-protos": "0.0.16",
+    "sonus": "^0.1.8",
+    "zmq": "^2.15.3"
+  }
+}

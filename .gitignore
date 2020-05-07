@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# voice-listener
+keyfile.json
+settings.js
