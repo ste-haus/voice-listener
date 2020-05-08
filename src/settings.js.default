@@ -1,6 +1,6 @@
 module.exports = {
     matrix: {
-        leds: 36
+        leds: 35
     },
     processor: {
         uri: {
