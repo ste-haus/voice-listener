@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function(ledCount) {
     var module = {};
     var everloop = {};
 
@@ -25,6 +25,8 @@ module.exports = function() {
     var max_intensity = 50
     var intensity_value = max_intensity
 
+    var ledAddresses = ledCount - 1;
+
     module.setEverloop = function (leds) {
         var image = matrix_io.malos.v1.io.EverloopImage.create();
 
@@ -48,7 +50,7 @@ module.exports = function() {
         everloop["pulse"] = setInterval(() => {
             var leds = [];
 
-            for(var i = 0; i < 35; i++){
+            for(var i = 0; i < ledAddresses; i++){
                 leds.push({
                     red: Math.floor(r * multiplier),
                     green: Math.floor(g * multiplier),
@@ -72,7 +74,7 @@ module.exports = function() {
         everloop["oscillate"] = setInterval(() => {
             var leds = [];
 
-            for(var i = 0; i < 35; i++){
+            for(var i = 0; i < ledAddresses; i++){
                 leds.push({
                     red: Math.floor(r * multiplier),
                     green: Math.floor(g * multiplier),
@@ -104,8 +106,8 @@ module.exports = function() {
         everloop["spin"] = setInterval(() => {
             var leds = [];
 
-            for(var i = 0; i < 35; i++){
-                if((i <= position) && (i > (position - tail) % 35)){
+            for(var i = 0; i < ledAddresses; i++){
+                if((i <= position) && (i > (position - tail) % ledAddresses)){
                     var intensity = (100 - ((100 / tail) * (position - i))) / 100;
                     leds.push({
                         red: Math.floor(r * intensity),
@@ -114,8 +116,8 @@ module.exports = function() {
                         white: Math.floor(0 * intensity)
                     });
                 }
-                else if((position - i) < 0 && (i > (35 - tail + position))){
-                    var intensity = (100 - ((100 / tail) * (35 - i + position))) / 100;
+                else if((position - i) < 0 && (i > (ledAddresses - tail + position))){
+                    var intensity = (100 - ((100 / tail) * (ledAddresses - i + position))) / 100;
                     leds.push({
                         red: Math.floor(r * intensity),
                         green: Math.floor(g * intensity),
@@ -135,7 +137,7 @@ module.exports = function() {
 
             module.setEverloop(leds);
 
-            position = ++position % 35;
+            position = ++position % ledAddresses;
         }, 20);
     };
 
@@ -151,7 +153,7 @@ module.exports = function() {
     module.clear = function (){
         var leds = [];
 
-        for(var i = 0; i < 35; i++){
+        for(var i = 0; i < ledAddresses; i++){
             leds.push({
                 red: 0,
                 green: 0,
@@ -178,7 +180,7 @@ module.exports = function() {
 
                 var leds = [];
 
-                for(var i = 0; i < 35; i++){
+                for(var i = 0; i < ledAddresses; i++){
                     leds.push({
                         red: r,
                         green: g,

@@ -1,5 +1,5 @@
 const settings = require('./settings');
-const everloop = require('./everloop')();
+const everloop = require('./everloop')(settings.matrix.leds);
 const processor = require('./processor')(settings.processor);
 
 const os = require('os');

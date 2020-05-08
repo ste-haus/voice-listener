@@ -1,4 +1,7 @@
 module.exports = {
+    matrix: {
+        leds: 36
+    },
     processor: {
         uri: {
             chime: 'http://nodered/endpoint/chime',
